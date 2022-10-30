@@ -21,7 +21,7 @@ const reducer = (state = {}, action) => {
   case "UPDATE_TICKET":
     let copyOfState = { ...state };
     const ticketToUpdate = copyOfState[id];
-    const updatedTicket = { ...ticketToUpdate, names: action.names};
+    const updatedTicket = { ...ticketToUpdate, names: action.names, issue: (action.issue || ticketToUpdate.issue)};
     
     delete copyOfState[id];
     return { ...copyOfState, [id] : updatedTicket};
