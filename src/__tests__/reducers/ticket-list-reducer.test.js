@@ -32,5 +32,29 @@ describe("ticketListReducer", () =>  {
     });
   });
 
+  // test("Should succesffully update the names in a ticket that already exists in state to: 'Beetlejuice and Coraline'", () => {
+  //   const currentState = {
+  //       [1]: {
+  //         names: "Ryan & Aimen",
+  //         location: "4b",
+  //         issue: "Redux action is not working correctly.",
+  //         id: 1
+  //       }
+  //     };
+  //   action = {
+  //     type: "UPDATE_TICKET",
+  //     id: 1,
+  //     names: "Beetlejuice and Coraline",
+  //   };
+  //   expect(ticketListReducer(currentState, action)).toEqual({
+  //     [1]: {
+  //       names: "Beetlejuice and Coraline",
+  //       location: "4b",
+  //       issue: "Redux action is not working correctly.",
+  //       id: 1
+  //     }
+  //   });
+  // });
+
 
 });

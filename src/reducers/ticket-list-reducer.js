@@ -11,6 +11,17 @@ const reducer = (state = {}, action) => {
         id: id
       }
     });
+    break;
+  // case "UPDATE_TICKET":
+  //   return Object.assign({}, state, {
+  //     [id]: {
+  //       names: names,
+  //       location: location,
+  //       issues: issue,
+  //       id: id
+  //     }
+  //   });
+  //   break;
   default: 
     return state;
   }
