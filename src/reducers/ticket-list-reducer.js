@@ -12,6 +12,12 @@ const reducer = (state = {}, action) => {
       }
     });
     break;
+  case "DELETE_TICKET":
+    let newState = { ...state };
+    delete newState[id];
+    return newState;
+    break;
+    
   // case "UPDATE_TICKET":
   //   return Object.assign({}, state, {
   //     [id]: {
