@@ -23,9 +23,11 @@ describe("ticketListReducer", () =>  {
     }
   }
 
+  //TEST 1
   test("Should return default state if there is no action type passed into the reducer", () => {expect(ticketListReducer({}, {type: null})).toEqual({});
   });
 
+  //TEST 2
   test("Should successfully add new ticket data to main TicketList", () => {
     const {names, location, issue, id} = ticketData;
     action = {
@@ -45,6 +47,7 @@ describe("ticketListReducer", () =>  {
     });
   });
 
+  //TEST 3
   test("Should successfully delete a ticket", () => {
     action = {
       type: "DELETE_TICKET",
@@ -60,7 +63,8 @@ describe("ticketListReducer", () =>  {
     });
   });
 
-  test("Should successfully update an existing ticket", () => {
+  //TEST 4
+  test("Should successfully update an existing ticket's name property", () => {
     action = {
       type: "UPDATE_TICKET",
       id: 2,
@@ -95,6 +99,33 @@ describe("ticketListReducer", () =>  {
       }
     });
   });
+
+  //TEST 5
+  test("Should successfully update an existing ticket's issue property", () => {
+    action = {
+      type: "UPDATE_TICKET",
+      id: 2,
+      issue: "updated issue test."
+    };
+    expect(ticketListReducer(currentState, action)).toEqual(
+      {
+        1: {
+          names: 'Ryan & Aimen',
+          location: '4b',
+          issue: 'Redux action is not working correctly.',
+          id: 1 
+        }, 2: {
+          names: 'Jasmine and Justine',
+          location: '2a',
+          issue: 'updated issue test.',
+          id: 2 
+        }
+      }
+    );
+  });
+    
+  
+
 
 
   // test("Should succesffully update the names in a ticket that already exists in state to: 'Beetlejuice and Coraline'", () => {
