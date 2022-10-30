@@ -45,7 +45,7 @@ describe("ticketListReducer", () =>  {
     });
   });
 
-  test("Should succesfully delete a ticket", () => {
+  test("Should successfully delete a ticket", () => {
     action = {
       type: "DELETE_TICKET",
       id: 1
@@ -59,6 +59,43 @@ describe("ticketListReducer", () =>  {
       }
     });
   });
+
+  test("Should successfully update an existing ticket", () => {
+    action = {
+      type: "UPDATE_TICKET",
+      id: 2,
+      names: "test & test",
+      // location: "2a",
+      // issue: "Reducer has side effects."
+    };
+    const thisState = {
+      1: {
+        names: 'Ryan & Aimen',
+        location: '4b',
+        issue: 'Redux action is not working correctly.',
+        id: 1 
+      }, 2: {
+        names: 'Bob and Jane',
+        location: '2a',
+        issue: 'Reducer has side effects.',
+        id: 2 
+      }
+    };
+    expect(ticketListReducer(thisState, action)).toEqual({
+      1: {
+        names: 'Ryan & Aimen',
+        location: '4b',
+        issue: 'Redux action is not working correctly.',
+        id: 1 
+      }, 2: {
+        names: 'test & test',
+        location: '2a',
+        issue: 'Reducer has side effects.',
+        id: 2 
+      }
+    });
+  });
+
 
   // test("Should succesffully update the names in a ticket that already exists in state to: 'Beetlejuice and Coraline'", () => {
   //   const currentState = {

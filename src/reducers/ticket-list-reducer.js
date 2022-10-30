@@ -17,7 +17,26 @@ const reducer = (state = {}, action) => {
     delete newState[id];
     return newState;
     break;
+  
+  case "UPDATE_TICKET":
+    let copyOfState = { ...state };
+    const ticketToUpdate = copyOfState[id];
+    const updatedTicket = { ...ticketToUpdate, names: action.names};
     
+    delete copyOfState[id];
+    return { ...copyOfState, [id] : updatedTicket};
+    // return  { ...copyOfState, updatedTicket};
+    // return Object.assign({}, copyOfState, {
+    //   [id]: {
+    //     names: names,
+    //     id: id,
+    //     issue: issue,
+    //     location: location
+    //   }
+    
+    console.log("hi");
+    break;
+
   // case "UPDATE_TICKET":
   //   return Object.assign({}, state, {
   //     [id]: {
