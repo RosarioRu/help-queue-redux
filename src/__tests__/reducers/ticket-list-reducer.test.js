@@ -123,6 +123,56 @@ describe("ticketListReducer", () =>  {
       }
     );
   });
+
+  //TEST 6
+  test("Should successfully update an existing ticket's location property", () => {
+    action = {
+      type: "UPDATE_TICKET",
+      id: 2,
+      location: "TEST LOCATION"
+    };
+    expect(ticketListReducer(currentState, action)).toEqual(
+      {
+        1: {
+          names: 'Ryan & Aimen',
+          location: '4b',
+          issue: 'Redux action is not working correctly.',
+          id: 1 
+        }, 2: {
+          names: 'Jasmine and Justine',
+          location: 'TEST LOCATION',
+          issue: 'Reducer has side effects.',
+          id: 2 
+        }
+      }
+    );
+  });
+
+  //TEST 7
+  test("Should successfully update an existing ticket's 'location', 'issue', and 'name'property", () => {
+    action = {
+      type: "UPDATE_TICKET",
+      id: 2,
+      names: "Test and Test",
+      location: "TEST LOCATION",
+      issue: "test issue"
+    };
+    expect(ticketListReducer(currentState, action)).toEqual(
+      {
+        1: {
+          names: 'Ryan & Aimen',
+          location: '4b',
+          issue: 'Redux action is not working correctly.',
+          id: 1 
+        }, 2: {
+          names: 'Test and Test',
+          location: 'TEST LOCATION',
+          issue: 'test issue',
+          id: 2 
+        }
+      }
+    );
+  });
     
   
 
